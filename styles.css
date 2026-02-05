@@ -1,3 +1,39 @@
+/* Wise Design System – foundations */
+:root {
+    /* Core colours */
+    --wise-bright-green: #9FE870;
+    --wise-forest-green: #163300;
+    --wise-white: #FFFFFF;
+    /* Content colours */
+    --wise-content-primary: #0E0F0C;
+    --wise-content-secondary: #454745;
+    --wise-content-tertiary: #6A6C6A;
+    --wise-content-link: #163300;
+    /* Interactive */
+    --wise-interactive-primary: #163300;
+    --wise-interactive-accent: #9FE870;
+    --wise-interactive-control: #163300;
+    --wise-interactive-secondary: #868685;
+    /* Backgrounds */
+    --wise-bg-screen: #FFFFFF;
+    --wise-bg-elevated: #FFFFFF;
+    --wise-bg-neutral: rgba(22, 51, 0, 0.08);
+    /* Borders */
+    --wise-border-neutral: rgba(14, 15, 12, 0.12);
+    /* Radius (desktop scale) */
+    --wise-radius-small: 16px;
+    --wise-radius-medium: 20px;
+    --wise-radius-large: 30px;
+    --wise-radius-x-large: 40px;
+    /* Spacing – foundational */
+    --wise-size-8: 8px;
+    --wise-size-12: 12px;
+    --wise-size-16: 16px;
+    --wise-size-24: 24px;
+    --wise-size-32: 32px;
+    --wise-size-40: 40px;
+}
+
 * {
     margin: 0;
     padding: 0;
@@ -5,28 +41,31 @@
 }
 
 body {
-    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, Oxygen, Ubuntu, Cantarell, sans-serif;
-    background-color: #f5f5f5;
+    font-family: 'Inter', -apple-system, BlinkMacSystemFont, sans-serif;
+    background-color: var(--wise-bg-screen);
+    color: var(--wise-content-primary);
     display: flex;
     justify-content: center;
     align-items: center;
     min-height: 100vh;
-    padding: 20px;
+    padding: var(--wise-size-24);
+    -webkit-font-smoothing: antialiased;
 }
 
 .cards-container {
     display: flex;
     flex-direction: row;
-    gap: 24px;
+    gap: var(--wise-size-12); /* between-cards */
     flex-wrap: nowrap;
     justify-content: center;
     align-items: flex-start;
 }
 
 .card {
-    background-color: #f2f1ed;
-    border-radius: 12px;
-    padding: 40px 32px;
+    background-color: var(--wise-bg-elevated);
+    border: 1px solid var(--wise-border-neutral);
+    border-radius: var(--wise-radius-medium);
+    padding: var(--wise-size-40) var(--wise-size-32);
     width: 320px;
     flex-shrink: 0;
 }
@@ -34,24 +73,25 @@ body {
 .card-title {
     font-size: 32px;
     font-weight: 600;
-    color: #333;
-    margin-bottom: 8px;
+    color: var(--wise-content-primary);
+    margin-bottom: var(--wise-size-8); /* between-text */
 }
 
 .card-price {
     font-size: 20px;
-    color: #666;
-    margin-bottom: 24px;
+    font-weight: 500;
+    color: var(--wise-content-secondary);
+    margin-bottom: var(--wise-size-24); /* content-to-button / text-to-component */
 }
 
 .card-content {
-    margin-bottom: 32px;
+    margin-bottom: var(--wise-size-32); /* between-sections */
 }
 
 .includes-text {
-    font-size: 16px;
-    color: #333;
-    margin-bottom: 16px;
+    font-size: var(--wise-size-16);
+    color: var(--wise-content-primary);
+    margin-bottom: var(--wise-size-16); /* component-default */
 }
 
 .features-list {
@@ -62,35 +102,41 @@ body {
 .features-list li {
     display: flex;
     align-items: center;
-    margin-bottom: 12px;
+    margin-bottom: var(--wise-size-12);
     font-size: 15px;
-    color: #333;
+    color: var(--wise-content-secondary);
 }
 
 .checkmark {
-    color: #4a4a4a;
+    color: var(--wise-forest-green);
     font-size: 18px;
-    margin-right: 12px;
-    font-weight: bold;
+    margin-right: var(--wise-size-12);
+    font-weight: 600;
 }
 
 .download-button {
     width: fit-content;
-    background-color: #e6e5e0;
+    background-color: var(--wise-interactive-accent);
+    color: var(--wise-interactive-control);
     border: none;
     border-radius: 999px;
-    padding: 14px 24px;
-    font-size: 16px;
+    padding: 14px var(--wise-size-24);
+    font-family: inherit;
+    font-size: var(--wise-size-16);
     font-weight: 500;
-    color: #333;
     cursor: pointer;
-    transition: background-color 0.2s ease;
+    transition: background-color 0.2s ease, transform 0.1s ease;
 }
 
 .download-button:hover {
-    background-color: #D8D6CE;
+    background-color: #8ed65f;
 }
 
 .download-button:active {
-    background-color: #D8D6CE;
+    transform: scale(0.98);
+}
+
+.download-button:focus-visible {
+    outline: 2px solid var(--wise-forest-green);
+    outline-offset: 2px;
 }
